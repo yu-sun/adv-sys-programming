@@ -70,7 +70,7 @@ int
 readaline_and_out(FILE *fin, FILE *fout)
 {    
     int ch, count = 0;
-
+    int arr[200], i=0;
     do {
         if ((ch = fgetc(fin)) == EOF) {
             if (!count)
@@ -80,9 +80,13 @@ readaline_and_out(FILE *fin, FILE *fout)
                 break;
             }
         }
-        fputc(ch, fout);
+	arr[count]=ch;
         count++;
     } while (ch != 0x0a);
+    for(i=count-1; i>0; i--){
+        fputc(arr[i-1], fout);
+    }
+    fputc('\n', fout);
     return 0;
 }
 
