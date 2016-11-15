@@ -13,6 +13,7 @@
 #define MAX_CLIENT 1024
 #define MAX_DATA 1024
 
+
 static struct termios term_old;
 void initTermios(void);
 void resetTermios(void);
